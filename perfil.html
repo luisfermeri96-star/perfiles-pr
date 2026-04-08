@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+</head>
+<body>
+  <h1 id="nombre"></h1>
+  <p id="info"></p>
+
+  <script>
+    const datos = {
+      "juan": {
+        nombre: "Juan Pérez",
+        info: "Grupo 2A - Alergia a cacahuate"
+      },
+      "maria": {
+        nombre: "María López",
+        info: "Grupo 2B - Contacto: 555-1234"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (datos[id]) {
+      document.getElementById("nombre").innerText = datos[id].nombre;
+      document.getElementById("info").innerText = datos[id].info;
+    } else {
+      document.body.innerHTML = "<h1>Perfil no encontrado</h1>";
+    }
+  </script>
+</body>
+</html>
