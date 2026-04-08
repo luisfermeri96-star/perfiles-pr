@@ -2,30 +2,67 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #info {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
   <h1 id="nombre"></h1>
-  <p id="info"></p>
+  <div id="info"></div>
 
   <script>
     const datos = {
-      "juan": {
-        nombre: "Juan Pérez",
-        info: "Grupo 2A - Alergia a cacahuate"
-      },
-      "maria": {
-        nombre: "María López",
-        info: "Grupo 2B - Contacto: 555-1234"
-      }
-    };
+  "luis": {
+    nombre: "Luis Fernando Merida Nolasco",
+    info: `
+    Fecha de nacimiento: 20 de junio de 1996 <br>
+    CURP: XXXXXXXXXXXXXXXXX <br>
+    Domicilio: xxxxxxxxxxxxxxxxxx <br><br>
 
+    Familiar responsable: Jhoana Niccole Galvez <br>
+    Contacto: xxxxxxxxx <br><br>
+
+    Familiar responsable: Isabel Nolasco Gonzáles <br>
+    Contacto: xxxxxxxxxxxx <br><br>
+
+    Asegurado: Sí, IMSS <br>
+    Hospital: Clínica Médico Familiar 29 <br>
+    Dirección: Av. 529 <br><br>
+
+    Historial médico: <br>
+    2009 - XXXXXXXXXXXXXXXXXXXXXXXXX <br>
+    2012 - xxxxxxxxxxxxxxxxxxxxxxxxx <br>
+    2020 - ------------------- <br><br>
+
+    Alergias: Ninguna <br>
+    Tipo de sangre: O+ <br>
+    Donador de órganos: Sí
+    `
+  }
+};
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
     if (datos[id]) {
       document.getElementById("nombre").innerText = datos[id].nombre;
-      document.getElementById("info").innerText = datos[id].info;
+      document.getElementById("info").innerHTML = datos[id].info;
     } else {
       document.body.innerHTML = "<h1>Perfil no encontrado</h1>";
     }
